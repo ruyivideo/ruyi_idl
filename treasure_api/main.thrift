@@ -1,6 +1,17 @@
 namespace go apix
 
 include "page.thrift"
+include "user.thrift"
+
+service user {
+
+    // 获取短信验证码授权Token
+    user.SmsTokenResponse GetSmsToken(1: user.SmsTokenRequest req) (api.get = "/user/sms/token"),
+
+    // 完成短信验证码校验 & 登陆
+    user.LoginResponse Login(1: user.LoginRequest req) (api.post = "/user/login"),
+
+}
 
 service treasure {
 
