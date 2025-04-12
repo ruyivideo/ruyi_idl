@@ -1,15 +1,18 @@
 namespace go apix
 
 include "page.thrift"
-include "user.thrift"
+include "passport.thrift"
 
 service user {
 
     // 获取短信验证码授权Token
-    user.SmsTokenResponse GetSmsToken(1: user.SmsTokenRequest req) (api.get = "/user/sms/token"),
+    passport.SmsTokenResponse GetSmsToken(1: passport.SmsTokenRequest req) (api.get = "/passport/sms/token"),
 
     // 完成短信验证码校验 & 登陆
-    user.LoginResponse Login(1: user.LoginRequest req) (api.post = "/user/login"),
+    passport.LoginResponse Login(1: passport.LoginRequest req) (api.post = "/passport/login"),
+
+    // 用户信息
+    passport.UserInfoResponse UserInfo(1: passport.UserInfoRequest req) (api.post = "/passport/user/info"),
 
 }
 
