@@ -5,8 +5,8 @@ include "passport.thrift"
 
 service user {
 
-    // 获取短信验证码授权Token
-    passport.SmsTokenResponse GetSmsToken(1: passport.SmsTokenRequest req) (api.get = "/passport/sms/token"),
+    // 发送验证码
+    passport.SendSmsVerifyCodeResponse SendSmsVerifyCode(1: passport.SendSmsVerifyCodeRequest req) (api.get = "/passport/sms/verify_code"),
 
     // 完成短信验证码校验 & 登陆
     passport.LoginResponse Login(1: passport.LoginRequest req) (api.post = "/passport/login"),
